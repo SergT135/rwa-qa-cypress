@@ -1,7 +1,6 @@
 {
   "name": "rwa-qa-cypress",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +18,14 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.10",
     "typescript": "^4.8.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergT135/rwa-qa-cypress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SergT135/rwa-qa-cypress/issues"
+  },
+  "homepage": "https://github.com/SergT135/rwa-qa-cypress#readme",
+  "description": ""
 }
