@@ -1,5 +1,5 @@
 export {};
-let name = 'fff';
+let name = 'fffssssssssssssss';
 console.log(`Hi ${name}`);
 //array
 let list1: number [] = [1,2,3]

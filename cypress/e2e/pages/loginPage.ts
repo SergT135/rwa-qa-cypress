@@ -1,11 +1,12 @@
+/// <reference types = "cypress"/>
 export class LoginPage {
     private userNameField: string = 'input[name="username"]';
     private passwordField: string = 'input[name="password"]';
     private rememberMeCheckBox: string  = 'input[name="remember"]';
-    private signInButton: string = 'button[type="submit"]';
+    public signInButton: string = 'button[type="submit"]';
     private signUpReff: string = 'a[data-test="signup"]';
-    private signedUserFullName: string = '[data-test="sidenav-user-full-name"]'; // full name of signed Up user
-    private userInvalid: string = '[data-test="signin-error"]'; // invalid user aler
+    public signedUserFullName: string = '[data-test="sidenav-user-full-name"]'; // full name of signed Up user
+    public userInvalid: string = '[data-test="signin-error"]'; // invalid user aler
 
     public enterUserName(username: string) {
         cy.get(this.userNameField).type(username);
