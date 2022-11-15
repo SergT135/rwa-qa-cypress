@@ -1,4 +1,7 @@
 /// <reference types = "cypress"/>
+
+import { Button } from "./button";
+
 export class LoginPage {
     private userNameField: string = 'input[name="username"]';
     private passwordField: string = 'input[name="password"]';
@@ -7,6 +10,15 @@ export class LoginPage {
     private signUpReff: string = 'a[data-test="signup"]';
     public signedUserFullName: string = '[data-test="sidenav-user-full-name"]'; // full name of signed Up user
     public userInvalid: string = '[data-test="signin-error"]'; // invalid user aler
+
+        
+    private signInButton_:Button = new Button();
+    private  cssButton =  this.signInButton_.css = 'button[type="submit"]';
+    
+    public newclick(){
+        this.signInButton_.click();       
+    }
+   
 
     public enterUserName(username: string) {
         cy.get(this.userNameField).type(username);
@@ -23,10 +35,11 @@ export class LoginPage {
     public login(username: string, pass: string) {
         this.enterUserName(username);
         this.enterpassword(pass);
-        this.clickSignIn();
+        //this.clickSignIn();
+        this.newclick();
     }
 
-    loginAuthUser() {
+    public loginAuthUser() {
         cy.fixture('database.json').then((data) => {
             //var q_users = data['users'].length; 
             let randomUserNum: number = Math.floor(Math.random() * (data['users'].length));

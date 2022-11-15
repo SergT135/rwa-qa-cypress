@@ -16,6 +16,7 @@
     }
 
     enterpassword(pass) {
+        cy.log("!!!!!!!!!!!!!!!!!!!!!!!")
         cy.get(this.#passwordField).type(pass);
     }
 

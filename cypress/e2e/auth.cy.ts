@@ -2,7 +2,7 @@ import { LoginPage } from "./pages/loginPage";
 
 const loginPage: LoginPage = new LoginPage();
 
-describe('All login tests', function () {
+describe('All login tests (TS2)', function () {
     it('should ok authorised user', function () {        
         //loginPage.login('Admin', 'admin123');
         loginPage.loginAuthUser();
