@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import { Button } from "./button";
+import { Button } from "../elements/button";
 import {LeftMenuPage} from "./left-menuPage"
 
 export class LoginPage {

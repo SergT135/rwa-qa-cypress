@@ -1,10 +1,9 @@
-import { LoginPage } from "./pages/loginPage";
+import { LoginPage } from "../support/pages/loginPage";
 
 const loginPage: LoginPage = new LoginPage();
 
-describe('All login tests (TS2)', function () {
-    it('should ok authorised user', function () {        
-        //loginPage.login('Admin', 'admin123');
+describe('All login tests (TS)', function () {
+    it('should ok authorised user', function () {                
         loginPage.loginAuthUser();
         cy.get(loginPage.signedUserFullName).should('exist');              
     })

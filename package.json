@@ -5,7 +5,9 @@
   "scripts": {
     "start": "npm run build:live",
     "build:live": "nodemon --watch '*.ts'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy-test": "cypress run",
+    "test-login": "cypress run --spec ./cypress/e2e/auth.cy.ts -b chrome"
   },
   "keywords": [],
   "author": "",
