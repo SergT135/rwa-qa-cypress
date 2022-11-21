@@ -1,8 +1,7 @@
 /// <reference types = "cypress"/>
-import {Button} from "./elements/button";
-import {Field} from "./elements/field";
+import { Button, Field } from "../../..";
 
-export class LoginPage  {
+export class LoginPage {
         
     private userNameField (): Field{
          return new Field ('input[name="username"]');        
@@ -37,12 +36,13 @@ export class LoginPage  {
     }
 
     // Login with random correct user
-    public loginRandomAuthUser(){
+    public loginRandomAuthUser(): LoginPage{
         cy.fixture('database.json').then((data) => {
             let randomUserNum: number = Math.floor(Math.random() * (data['users'].length));
             let randomUserName: string = data.users[randomUserNum].username;
             this.login(randomUserName, "s3cret");
         })
+        return this;
     }
 
 

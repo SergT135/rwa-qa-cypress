@@ -1,7 +1,7 @@
 {
   "name": "rwa-qa-cypress",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "npm run build:live",
     "build:live": "nodemon --watch '*.ts'",

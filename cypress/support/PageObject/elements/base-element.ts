@@ -7,12 +7,15 @@ export abstract class BaseElement{
     constructor(selector: string){
         this.selector = selector;
         
-        this.element = cy.get(this.selector);
+        this.element = cy.get(this.selector).then(tagName => {                      
+            this.tagName = "!!! tagName";
+        });
+
                    
-        // cy.get(this.selector).invoke('prop', 'tagName').then(tagName => {
-        //     this.tagName = tagName
+        // cy.get(this.selector).invoke('prop', 'tagName').then($tagName => {
+        //    this.tagName = "tagName";
         // });
-        
+            
         //this.set_tagName();
 
     }
