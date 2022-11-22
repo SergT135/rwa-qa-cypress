@@ -2,6 +2,8 @@
 import { Button, Field } from "../../..";
 
 export class LoginPage {
+
+    private button: Button;
         
     private userNameField (): Field{
          return new Field ('input[name="username"]');        
