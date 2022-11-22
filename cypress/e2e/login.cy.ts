@@ -16,7 +16,7 @@ describe('All login tests (new ver))', function(){
 
     
     it('Sandbox for attributs reading', ()=>{
-        cy.log(`Tag name из свойста ${loginPage.getColor()}`);
+        cy.log(`Tag name из свойста ${loginPage.getSomeProp()}`);
         //invoke('attr', 'type')
         cy.get('button[type="submit"]').invoke('prop', 'tagName').then(tagName => {
             cy.log("непосрественно из су " + tagName);            

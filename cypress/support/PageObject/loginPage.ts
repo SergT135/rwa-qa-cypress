@@ -25,9 +25,9 @@ export class LoginPage {
         return new Button('button[type="submit"]');          
     }
 
-    public getColor(): string{
-        cy.log("TagName =" + this.submitButton().tagName)
-        return this.submitButton().tagName;
+    public getSomeProp(){
+        cy.log("TagName = " + this.submitButton().get_tagName__())
+        return this.submitButton().get_tagName__();
     }
 
     public login(username: string, pass: string): LoginPage {
