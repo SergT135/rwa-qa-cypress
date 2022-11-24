@@ -9,4 +9,9 @@ export class Button extends BaseElement{
         this.get_element().click();
     }
 
+    public getBackGroundColor():Cypress.Chainable<JQuery<HTMLElement>>{
+        //return this.get_element().invoke('prop', 'type');
+        return this.get_element().invoke('prop', 'background'); // bgColor
+    }
+
 }

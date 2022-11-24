@@ -15,12 +15,21 @@ describe('All login tests (new ver))', function(){
 
 
     
-    it('Sandbox for attributs reading', ()=>{
-        cy.log(`Tag name из свойста ${loginPage.getSomeProp()}`);
-        //invoke('attr', 'type')
-        cy.get('button[type="submit"]').invoke('prop', 'tagName').then(tagName => {
-            cy.log("непосрественно из су " + tagName);            
-        })
+    it.only('Sandbox for attributs reading', function(){
+        let tag
+        tag = loginPage.getSomeProp().then($tag => {
+            tag= $tag;
+            console.log(tag);
+            return tag;
+        });
+        
+        console.log(`Tag name из свойста ${tag}`);        
+        // cy.get('button[type="submit"]').invoke('prop', 'tagName').then(tagName => {
+        //     cy.log("непосрественно из су " + tagName);            
+        // })
+        
+        //loginPage.getSomeProp().should("equal", "BUTTON");
+        ///loginPage.submitButton().getBackGroundColor().should("equal", "submit");
     })
 
 

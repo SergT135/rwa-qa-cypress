@@ -1,5 +1,5 @@
 /// <reference types = "cypress"/>
-import { Button, Field } from "../../..";
+import { Button, Field, HomePage } from "../../..";
 
 export class LoginPage {
 
@@ -27,7 +27,8 @@ export class LoginPage {
 
     public getSomeProp(){
         cy.log("TagName = " + this.submitButton().get_tagName__())
-        return this.submitButton().get_tagName__();
+        //return this.submitButton().tagName;
+        return this.submitButton().get_tagName__();        
     }
 
     public login(username: string, pass: string): LoginPage {
@@ -38,13 +39,13 @@ export class LoginPage {
     }
 
     // Login with random correct user
-    public loginRandomAuthUser(): LoginPage{
+    public loginRandomAuthUser(): HomePage{
         cy.fixture('database.json').then((data) => {
             let randomUserNum: number = Math.floor(Math.random() * (data['users'].length));
             let randomUserName: string = data.users[randomUserNum].username;
             this.login(randomUserName, "s3cret");
         })
-        return this;
+        return new HomePage();
     }
 
 

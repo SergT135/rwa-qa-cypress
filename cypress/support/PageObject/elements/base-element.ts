@@ -11,12 +11,12 @@ export abstract class BaseElement{
         this.element = cy.get(this.selector); 
         cy.log("this.selector = "+ this.selector);       
                    
-        // cy.get(this.selector).invoke('prop', 'tagName').then($tagName =>{
+         cy.get(this.selector).invoke('prop', 'tagName').then($tagName =>{
         //     cy.log("$tagName = " + $tagName)
-        //     this.tagName = $tagName;
+             this.tagName = $tagName;
         //     cy.log("this.tagName в блоке then() = "+ this.tagName);  //here value is correct!
         //     cy.log(`this.selector в блоке then() = ${this.selector}`);      
-        // })
+         })
         // cy.log("this.tagName 2 = "+ this.tagName); //but here always underfined
                           
         //this.set_tagName();       
@@ -28,15 +28,22 @@ export abstract class BaseElement{
         return this.element;       
     }
 
-    public get_tagName__ (){
-        //return this.element.invoke('prop', 'tagName');  // reterns type [object Object]
-        return cy.get(this.selector).invoke('prop', 'tagName');    // also returns type [object Object]
+    public get_tagName__ ():Cypress.Chainable<string>{        
+        //return cy.wrap(2).should('equal',2);
+       // return this.element.invoke('prop', 'tagName');  // returns type [object Object]
+        // return cy.get(this.selector).invoke('prop', 'tagName');    // also returns type [object Object]
         // return cy.get(this.selector).invoke('prop', 'tagName').its('tagName'); // no prop tagName
 
+         return cy.get(this.selector).invoke('prop', 'tagName').then(prop => {
+            console.log(prop)
+            return prop;
+         });
+
        
-        // cy.get(this.selector).invoke('prop', 'tagName').then($tagName => {
-        //     return $tagName;     /// always=underfined        
-        // })            
+        //  cy.get(this.selector).invoke('attr', 'bgcolor').then($tagName => {
+        //     return "$tagName";     /// always=undefined        
+        //  //  return $tagName;     /// always=undefined        
+        //  })            
         
     }
     

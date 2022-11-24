@@ -9,4 +9,8 @@ export class Reference extends BaseElement {
         this.get_element().click();
     }
 
+    public getHref():Cypress.Chainable<JQuery<HTMLElement>>{
+        return this.get_element().invoke('attr', 'href');
+    }
+
 }
