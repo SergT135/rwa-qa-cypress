@@ -5,7 +5,7 @@ export class Field extends BaseElement {
         super(selector);
     }
 
-    public type(text: string): Cypress.Chainable<JQuery<HTMLElement>>{
+    private type(text: string): Cypress.Chainable<JQuery<HTMLElement>>{
          return this.get_element().type(text);
     }
 

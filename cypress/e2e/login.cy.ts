@@ -13,11 +13,14 @@ describe('All login tests (new ver))', function(){
         loginPage.signedUserFullName().should('exist');        
     })
 
+   
+
 
     
-    it.only('Sandbox for attributs reading', function(){
+    it('Sandbox for attributs reading', function(){
+        loginPage.submitButton().get_backgroundColor().should('equal','rgb(63, 81, 181)');
         let tag
-        tag = loginPage.getSomeProp().then($tag => {
+        tag = loginPage.submitButton().get_tagName().then($tag => {
             tag= $tag;
             console.log(tag);
             return tag;

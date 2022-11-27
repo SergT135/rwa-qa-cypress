@@ -1,6 +1,6 @@
 import { Reference, LeftMenu, LoginPage } from "../../..";
 
-export class HomePage extends LeftMenu {
+export class TransactionPage extends LeftMenu {
             
     public logo(): Cypress.Chainable<JQuery<HTMLElement>>{
         return cy.get('[data-test="app-name-logo"]'); // Logo

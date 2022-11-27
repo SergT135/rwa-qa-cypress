@@ -2,7 +2,7 @@ import { LoginPage } from "../support/pages/loginPage";
 
 const loginPage: LoginPage = new LoginPage();
 
-describe('All login tests (TS)', function () {
+describe('All login tests (prev. ver.POM)', function () {
     it('should ok authorised user', function () {                
         loginPage.loginAuthUser();
         cy.get(loginPage.signedUserFullName).should('exist');              
@@ -10,7 +10,6 @@ describe('All login tests (TS)', function () {
 
     it('should error Unauthorised user', function () {
         loginPage.login("nonvalidlogin", "nonvalidpassword");
-        cy.get(loginPage.userInvalid).should('exist');         
-        //cy.get(loginPage.userInvalid).should('not.exist');         
+        cy.get(loginPage.userInvalid).should('exist');                
     })
 })

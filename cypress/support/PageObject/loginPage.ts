@@ -25,15 +25,9 @@ export class LoginPage {
         return new Button('button[type="submit"]');          
     }
 
-    public getSomeProp(){
-        cy.log("TagName = " + this.submitButton().get_tagName__())
-        //return this.submitButton().tagName;
-        return this.submitButton().get_tagName__();        
-    }
-
     public login(username: string, pass: string): LoginPage {
-        this.userNameField().type(username);
-        this.passwordField().type(pass);
+        this.userNameField().clearAndType(username);
+        this.passwordField().clearAndType(pass);
         this.submitButton().click();       
         return this;
     }
@@ -47,8 +41,5 @@ export class LoginPage {
         })
         return new HomePage();
     }
-
-
-
 
 }
