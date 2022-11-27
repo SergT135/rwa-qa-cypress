@@ -1,3 +1,4 @@
+import { reject } from "cypress/types/bluebird";
 import { LoginPage } from "../support/PageObject/loginPage";
 
 const loginPage = new LoginPage();
@@ -16,10 +17,28 @@ describe('All login tests (new ver))', function(){
    
 
 
-    
+// Promise 
+    it.only('should work? work!!', async () => {
+        let tag: Cypress.Chainable<unknown> | Promise<any>;
+        var value: any;
+        tag = loginPage.submitButton().get_tagName().then(($tag)=>{
+            return new Cypress.Promise((resolve, reject)=>{
+                resolve(tag);                
+            })
+        })
+        tag.then(function(value: string){
+            console.log(`inside of resolve of Promis: === ${value}`); //==BUTTON
+            cy.log(value);
+        })        
+
+        console.log(`out of resolve funciton of Promise:  ${value}`);  //=undefined. 1) Excecuted befor resolve func 
+        
+     })
+     
+     
     it('Sandbox for attributs reading', function(){
         loginPage.submitButton().get_backgroundColor().should('equal','rgb(63, 81, 181)');
-        let tag
+        let tag: JQuery<HTMLElement> | Cypress.Chainable<any>
         tag = loginPage.submitButton().get_tagName().then($tag => {
             tag= $tag;
             console.log(tag);
