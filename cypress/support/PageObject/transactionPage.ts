@@ -1,6 +1,8 @@
-import { Reference, LeftMenu, LoginPage } from "../../..";
+import { Reference, LeftMenu, Calendar } from "../../..";
 
 export class TransactionPage extends LeftMenu {
+
+    public calendar: Calendar; 
             
     public logo(): Cypress.Chainable<JQuery<HTMLElement>>{
         return cy.get('[data-test="app-name-logo"]'); // Logo
@@ -25,6 +27,12 @@ export class TransactionPage extends LeftMenu {
 
     public transactionTypeHeader(): Cypress.Chainable<JQuery<HTMLElement>>{        
         return cy.get('.MuiListSubheader-root');          
+    }
+
+    public setDate(){
+        this.calendar = new Calendar('div[data-test="transaction-list-filter-date-range-button"]');
+        this.calendar.openCalendar();
+
     }
     
 }

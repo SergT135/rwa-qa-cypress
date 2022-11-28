@@ -1,6 +1,6 @@
-import {HomePage, LoginPage } from "../..";
+import {TransactionPage, LoginPage } from "../..";
 
-const homePage = new HomePage();
+const transactionPage = new TransactionPage();
 const loginPage = new LoginPage();
 
 describe('Transactions page', function(){
@@ -8,14 +8,26 @@ describe('Transactions page', function(){
         loginPage.loginRandomAuthUser();
         loginPage.signedUserFullName().should('exist');
         
-        homePage.optionEveryone().click();
-        homePage.transactionTypeHeader().should('have.text','Public');
+        transactionPage.optionEveryone().click();
+        transactionPage.transactionTypeHeader().should('have.text','Public');
         
-        homePage.optionFriends().click();
-        homePage.transactionTypeHeader().should('have.text','Contacts');
+        transactionPage.optionFriends().click();
+        transactionPage.transactionTypeHeader().should('have.text','Contacts');
         
-        homePage.optionMine().click();
-        homePage.transactionTypeHeader().should('have.text','Personal')        
+        transactionPage.optionMine().click();
+        transactionPage.transactionTypeHeader().should('have.text','Personal')        
+    })
+
+    it.only('should select Date', function(){
+        loginPage.loginRandomAuthUser();
+        loginPage.signedUserFullName().should('exist');
+
+        transactionPage.optionEveryone().click();
+        transactionPage.setDate();
+        //cy.get('[data-test="transaction-list-filter-date-range-button"] > .MuiChip-label').should('exist');
+        //cy.get('[data-test="transaction-list-filter-date-range-button"] > .MuiChip-label').click({force: true});
+
+
     })
 
 

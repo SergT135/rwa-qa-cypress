@@ -31,7 +31,7 @@ describe('All login tests (new ver))', function(){
             cy.log(value);
         })        
 
-        console.log(`out of resolve funciton of Promise:  ${value}`);  //=undefined. 1) Excecuted befor resolve func 
+        console.log(`out of resolve funciton of Promise:  ${value}`);  //=undefined. Executed first, before resolve func
         
      })
      
