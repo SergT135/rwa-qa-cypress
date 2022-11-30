@@ -12,7 +12,7 @@ export class Calendar extends BaseElement{
     //div[data-test="transaction-list-filter-date-range-button"]
     //div.Cal__Header__wrapper
     //cy.get('.Cal__Day__today > span') - today span
-    //
+    ////li[data-date="2022-11-28"]
 
     // Select Date text
     private selectDateText(): Cypress.Chainable<JQuery<HTMLElement>>{
@@ -39,41 +39,15 @@ export class Calendar extends BaseElement{
 
 
     protected static  setDate(scrollpos: number = 0){
-        const date = "1980-01-01";  // "2022-11-28";
+        const date = "1985-01-28";  // 2022-11-28   1980-01-01;
         //const data_date = '[data-date="' + date + '"]'
        
         let step= scrollpos + "%"; //'0%'
         cy.log('1 step=:'+ step);
         console.log("1 " + step);
-        cy.get('.Cal__MonthList__root').scrollTo('0%', step , { duration: 1000 });
+        cy.get('.Cal__MonthList__root').scrollTo('0%', step , { duration: 500 });
 
-        //let nn = Cypress.$('li[data-date]');
-        //console.log(nn.length);
-        //.invoke('attr','data-date')
-
-
-        ///!!!! cy.get('[data-date="2022-11-28"]').should('exist').click({force: true}); //for search "around" today
-        
-        /*
-        cy.get('div.Cal__MonthList__root').find('li[data-date]').invoke('attr','data-date').then((prop) =>{
-            cy.log(prop);
-            if(prop !==date){
-                scrollpos = scrollpos + 1;
-                
-                cy.log('step=:'+ step);
-                console.log(step);
-                if (scrollpos <= 100){
-                    this.setDate(scrollpos);
-                }
-                
-            } else {
-                cy.log('date===');
-                
-            }
-        })
-        */
-        
-
+        ///!!!! cy.get('[data-date="2022-11-28"]').should('exist').click({force: true}); //for search "around" "today" 
         
         cy.get('div.Cal__MonthList__root').find('li[data-date]').each(function ($el, index, $list){
             
@@ -95,22 +69,22 @@ export class Calendar extends BaseElement{
                         // defense from overflow scroll-position
                         console.log('== scroll calendar===');
                         cy.log('== scroll calendar===');
-                        //Calendar.setDate(scrollpos);
+                        Calendar.setDate(scrollpos);
                     }
                 }                
             } else{
-                cy.log(`data_date has been found: + ${data_date}`);
+                cy.log(`!!!!data_date's been found: + ${data_date}`);
                 console.log('date===!!!!!!!!' + data_date);
                 cy.wrap($el).click({force: true});
                 expect("2").equal("2"); // attr("data-date").to.have.text(data_date)
-                return;           
+                return false;  //to stop iterations         
             }     
             
             ///expect($list).attr("data-date").to.have.text('1980-01-01');
                        
          })      
 
-        //li[data-date="2022-11-28"]
+        
         return;
     }
 
