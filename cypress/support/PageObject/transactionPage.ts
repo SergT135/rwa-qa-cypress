@@ -29,10 +29,14 @@ export class TransactionPage extends LeftMenu {
         return cy.get('.MuiListSubheader-root');          
     }
 
-    public setDate(){
-        this.calendar = new Calendar('div[data-test="transaction-list-filter-date-range-button"]');
-        this.calendar.openCalendar();
+    // No transaction text
+    public NoTransactionText(): Cypress.Chainable<JQuery<HTMLElement>>{
+        return cy.get('[data-test="empty-list-header"] > .MuiTypography-root');
+    }   
 
+    public setDate(date_1: string, date_2: string){
+        this.calendar = new Calendar('div[data-test="transaction-list-filter-date-range-button"]');
+        this.calendar.openCalendar(date_1, date_2);
     }
     
 }

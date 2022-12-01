@@ -18,16 +18,13 @@ describe('Transactions page', function(){
         transactionPage.transactionTypeHeader().should('have.text','Personal')        
     })
 
-    it.only('should select Date', function(){
+    it('should exist No Transaction Text', function(){
         loginPage.loginRandomAuthUser();
         loginPage.signedUserFullName().should('exist');
 
         transactionPage.optionEveryone().click();
-        transactionPage.setDate();
-        //cy.get('[data-test="transaction-list-filter-date-range-button"] > .MuiChip-label').should('exist');
-        //cy.get('[data-test="transaction-list-filter-date-range-button"] > .MuiChip-label').click({force: true});
-
-
+        transactionPage.setDate("1985-01-28", "1985-01-29");
+        transactionPage.NoTransactionText().should('exist');
     })
 
 
