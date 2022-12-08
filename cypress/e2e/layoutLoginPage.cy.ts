@@ -1,4 +1,4 @@
-import { LoginPage } from "../..";
+import { LoginPage } from "../support/PageObject";
 
 const loginPage = new LoginPage();
 

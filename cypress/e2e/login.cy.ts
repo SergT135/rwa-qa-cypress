@@ -1,5 +1,5 @@
 import { reject } from "cypress/types/bluebird";
-import { LoginPage } from "../support/PageObject/loginPage";
+import { LoginPage } from "../support/PageObject";
 
 const loginPage = new LoginPage();
 
@@ -18,7 +18,7 @@ describe('All login tests (new ver))', function(){
 
 
 // Promise 
-    it.only('should work? work!!', async () => {
+    it.skip('should work? work!!', async () => {
         let tag: Cypress.Chainable<unknown> | Promise<any>;
         var value: any;
         tag = loginPage.submitButton().get_tagName().then(($tag)=>{

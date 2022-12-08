@@ -1,4 +1,5 @@
-import {TransactionPage, LoginPage } from "../..";
+//import {TransactionPage, LoginPage } from "../..";
+import {TransactionPage, LoginPage } from "../support/PageObject";
 
 const transactionPage = new TransactionPage();
 const loginPage = new LoginPage();

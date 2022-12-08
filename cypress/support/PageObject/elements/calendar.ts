@@ -1,4 +1,3 @@
-import { extendWith } from "cypress/types/lodash";
 import { BaseElement } from "./base-element";
 
 export class Calendar extends BaseElement{

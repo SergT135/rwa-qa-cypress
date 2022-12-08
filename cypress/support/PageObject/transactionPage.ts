@@ -1,8 +1,10 @@
-import { Reference, LeftMenu, Calendar } from "../../..";
+import { Reference, Calendar } from "./elements";
+import { LeftMenu } from "../PageObject";
 
 export class TransactionPage extends LeftMenu {
 
-    public calendar: Calendar; 
+    public calendar: Calendar;
+    ////private leftMenu: LeftMenu;
             
     public logo(): Cypress.Chainable<JQuery<HTMLElement>>{
         return cy.get('[data-test="app-name-logo"]'); // Logo

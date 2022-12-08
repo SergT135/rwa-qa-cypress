@@ -1,5 +1,5 @@
 /// <reference types = "cypress"/>
-import {Reference} from "./elements/reference";
+import {Reference} from "./elements";
 
 export class LeftMenu {
 

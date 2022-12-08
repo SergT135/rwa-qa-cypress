@@ -1,5 +1,7 @@
 /// <reference types = "cypress"/>
-import { Button, Field, TransactionPage } from "../../..";
+import { Button, Field } from "./elements";
+import { TransactionPage } from "../PageObject";
+
 
 export class LoginPage {
 
