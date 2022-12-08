@@ -9,6 +9,7 @@ describe('Transactions page', function(){
         loginPage.loginRandomAuthUser();
         loginPage.signedUserFullName().should('exist');
         
+        transactionPage.optionHome();
         transactionPage.optionEveryone().click();
         transactionPage.transactionTypeHeader().should('have.text','Public');
         
@@ -23,9 +24,22 @@ describe('Transactions page', function(){
         loginPage.loginRandomAuthUser();
         loginPage.signedUserFullName().should('exist');
 
+        transactionPage.optionHome();
         transactionPage.optionEveryone().click();
         transactionPage.setDate("1985-01-28", "1985-01-29");
         transactionPage.NoTransactionText().should('exist');
+    })
+
+
+    it.skip('should exist amount', ()=>{
+        loginPage.loginRandomAuthUser();
+        loginPage.signedUserFullName().should('exist');
+        
+        transactionPage.optionHome();
+        transactionPage.optionEveryone().click();
+        transactionPage.setAmount();
+
+
     })
 
 
